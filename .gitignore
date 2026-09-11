@@ -1,6 +1,7 @@
 dist/
 node_modules/
 .sites-runtime/
+.vercel/
 research/*.png
 research/*.json
 artifacts/

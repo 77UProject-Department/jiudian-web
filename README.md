@@ -50,7 +50,22 @@
 
 页面地址：`/`、`/about/`、`/shop/`、`/teamwork/`、`/contact/`。服务器需支持目录默认文档 `index.html`。不建议部署在域名子目录，除非同步调整资源路径。
 
-本次已提供完整源码和本地预览，尚未发布到公网或绑定公司域名。
+## 部署到 Vercel
+
+仓库已经包含 `vercel.json`，使用 Vercel 原生静态网站部署。无需转换成 Next.js，也不需要在线运行本地预览服务器。
+
+1. 在 Vercel 创建项目，导入 GitHub 仓库 `77UProject-Department/jiudian-web`。
+2. Root Directory 使用仓库根目录（`./`），生产分支选择 `master`。
+3. Framework Preset 为 `Other`；构建命令 `npm run build`；输出目录 `dist`。这些值已写入仓库配置，无需再次覆盖。
+4. 点击 Deploy，等待 Vercel 显示部署成功后，使用它提供的网站地址访问。
+
+项目当前没有第三方依赖，配置会跳过安装步骤；不需要填写环境变量。以后添加依赖时，请同步移除或修改 `vercel.json` 中的空 `installCommand`。
+
+构建会分别生成四个内页的 `index.html`。Vercel 将 `/about` 等地址统一跳转到带尾斜杠的 `/about/`，直接访问、刷新内页都使用对应的静态文件。样式、脚本和图片从网站根路径加载。未知地址由构建产物 `404.html` 提供错误页面，不使用把所有地址重写为首页的规则。
+
+如果之前已导入过项目，确认生产分支为 `master`，然后对最新提交执行 Redeploy。连接 GitHub 后，后续推送到生产分支可以触发更新。首次部署完成后，再在 Vercel 中绑定公司域名。
+
+配置字段依据 [Vercel 官方配置文档](https://vercel.com/docs/project-configuration/vercel-json)。当前完成了部署适配；实际公网地址及上线状态以 Vercel 部署结果为准。
 
 ## 内容与图片说明
 
