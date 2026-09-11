@@ -1,0 +1,6 @@
+dist/
+node_modules/
+.sites-runtime/
+research/*.png
+research/*.json
+artifacts/
