@@ -25,7 +25,7 @@
   const routes = [['/','主页'], ['/about','关于我们'], ['/shop','店铺展示'], ['/teamwork','合作联营'], ['/contact','联系我们']];
   const route = location.pathname.replace(/\/+$/, '').replace(/\/index\.html$/, '') || '/';
   const activeRoute = routes.some(([href]) => href === route) ? route : '/404';
-  const brand = (large=false) => `<span class="brand ${large?'brand-large':''}"><span class="brand-mark" aria-hidden="true">77</span><span class="brand-name">${E(C.brand)}<small>${E(C.brandEnglish)} · ESPORTS HOTEL</small></span></span>`;
+  const brand = (large=false) => `<span class="brand ${large?'brand-large':''}"><img class="brand-logo" src="${safeUrl(C.logo)}" alt="" width="60" height="60"/><span class="brand-name">${E(C.brand)}<small>${E(C.brandEnglish)} · ESPORTS HOTEL</small></span></span>`;
   const button = (text, href, secondary=false) => `<a class="button ${secondary?'button-outline':''}" href="${href}">${text}${icon('arrow')}</a>`;
   const heading = (en, zh, description='') => `<div class="section-heading"><span class="eyebrow">${en}</span><h2>${zh}</h2>${description?`<p>${description}</p>`:''}</div>`;
   const qr = (url,title) => url ? `<div class="qr-card"><img src="${safeUrl(url)}" alt="${title}"/><span>${title}</span></div>` : '';
@@ -67,7 +67,7 @@
   }
   const views = {'/':home,'/about':about,'/shop':shop,'/teamwork':teamwork,'/contact':contact};
   document.getElementById('app').innerHTML = header + `<main id="main">${views[activeRoute]?views[activeRoute]():`<section class="not-found wrap"><span class="eyebrow">404</span><h1>这个页面还没有开场。</h1>${button('返回主页','/')}</section>`}</main>` + footer;
-  document.title = (routes.find(([href])=>href===activeRoute)?.[1] || '页面未找到') + '｜' + C.company;
+  document.title = (routes.find(([href])=>href===activeRoute)?.[1] || '页面未找到') + '｜' + C.brand;
   const menu = document.querySelector('.menu-toggle');
   menu.addEventListener('click',()=>{const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded',String(open)); menu.setAttribute('aria-label',open?'关闭导航':'打开导航'); document.querySelector('.header').classList.toggle('menu-open',open);});
   document.addEventListener('keydown',e=>{if(e.key==='Escape' && menu.getAttribute('aria-expanded')==='true')menu.click();});

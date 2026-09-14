@@ -2,7 +2,8 @@
 // 留空的电话、地址、二维码和备案号不会伪装成真实资料。
 window.SITE_CONFIG = {
   company: '四川柒柒游酒店管理有限公司',
-  brand: '柒柒游',
+  brand: '柒柒游电竞酒店',
+  logo: '/assets/qiqiyou-panda.png',
   brandEnglish: 'QIQIYOU',
   accent: '#ff480d',
   contact: {
@@ -23,7 +24,7 @@ window.SITE_CONFIG = {
     description: '用专业电竞体验与精品住宿空间，连接每一份热爱。',
     image: '/assets/room-twin.jpg'
   },
-  introduction: '柒柒游专注中端精品电竞酒店联营服务，面向传统单体酒店、闲置公寓与转型网咖，提供品牌、设备、运营与流量支持，让空间焕发新的可能。',
+  introduction: '柒柒游电竞酒店专注中端精品电竞酒店联营服务，面向传统单体酒店、闲置公寓与转型网咖，提供品牌、设备、运营与流量支持，让空间焕发新的可能。',
   positioning: '电竞酒店联营服务商',
   brandStatement: '让玩家尽兴，让经营用心。',
   brandDescription: '从一台电脑的流畅体验，到一间客房的安心入眠，我们把电竞的热爱与酒店的服务放在同样重要的位置。',
